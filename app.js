@@ -8,6 +8,10 @@ app.use(express.static('public'))
 app.set('view engine', 'ejs')
 app.set('views', 'views')
 app.use(expressLayout)
+app.use(express.json({}))
+app.use(express.urlencoded({
+    extended: true
+}))
 
 const db = mysql.createConnection({
     host: "127.0.0.1",
@@ -44,6 +48,13 @@ db.connect(err => {
             res.render('component/add', {
                 layout: 'layouts/main'
             })
+        })
+        app.post('/add',(req,res) => {
+            db.query(`INSERT INTO coordinate_loc(location,lat,lng) VALUES("${req.body.loc}", ${req.body.latAdd}, ${req.body.lngAdd})`, (err, result) => {
+                if (err) throw err
+                res.redirect('/manage')
+            })
+            // console.log(req.body)
         })
         app.get('/edit/:id_location', (req,res) => {
             res.render('component/edit', {
