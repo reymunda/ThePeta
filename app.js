@@ -45,10 +45,14 @@ db.connect(err => {
                 layout: 'layouts/main'
             })
         })
-        app.get('/edit', (req,res) => {
+        app.get('/edit/:id_location', (req,res) => {
             res.render('component/edit', {
                 layout: 'layouts/main'
             })
+        })
+        app.get('/delete/:id_location', (req,res) => {
+            db.query(`DELETE FROM coordinate_loc WHERE id=${req.params.id_location}`)
+            res.redirect('/manage');
         })
     }
 })

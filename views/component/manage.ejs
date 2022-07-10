@@ -23,8 +23,12 @@
             <td><%=e.lat%></td>
             <td><%=e.lng%></td>
             <td>
-                <button class="btn btn-outline-primary">Edit</button>
-                <button class="btn btn-outline-danger">Delete</button>
+                <a href="#">
+                  <button class="btn btn-outline-primary">Edit</button>
+                </a>
+                <a href="/delete/<%=e.id%>">
+                  <button class="btn btn-outline-danger">Delete</button>
+                </a>
             </td>
           </tr>
           <%})%>
