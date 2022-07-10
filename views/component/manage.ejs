@@ -16,35 +16,18 @@
           </tr>
         </thead>
         <tbody>
+          <% dataLoc.forEach(e =>{%>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row"><%=e.id%></th>
+            <td><%=e.location%></td>
+            <td><%=e.lat%></td>
+            <td><%=e.lng%></td>
             <td>
                 <button class="btn btn-outline-primary">Edit</button>
                 <button class="btn btn-outline-danger">Delete</button>
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>
-                <button class="btn btn-outline-primary">Edit</button>
-                <button class="btn btn-outline-danger">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            <td>
-                <button class="btn btn-outline-primary">Edit</button>
-                <button class="btn btn-outline-danger">Delete</button>
-            </td>  
-        </tr>
+          <%})%>
         </tbody>
       </table>
 </div>

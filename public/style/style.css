@@ -105,3 +105,11 @@ table{
     font-size: 22px;
     font-weight: bold;
 }
+.input-container input#lngAdd, .input-container input#latAdd{
+  background-color: transparent;
+  outline: none;
+  color: rgb(0, 189, 110);
+  font-size: 22px;
+  border: none;
+  font-weight: bold;
+}
