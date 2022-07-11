@@ -57,8 +57,18 @@ db.connect(err => {
             // console.log(req.body)
         })
         app.get('/edit/:id_location', (req,res) => {
-            res.render('component/edit', {
-                layout: 'layouts/main'
+            db.query(`SELECT * FROM coordinate_loc WHERE id=${req.params.id_location}`, (err, result) => {
+                let dataLoc = JSON.parse(JSON.stringify(result))[0]
+                res.render('component/edit', {
+                    layout: 'layouts/main',
+                    dataLoc
+                })
+            })
+        })
+        app.post('/edit/:id_location', (req,res) => {
+            db.query(`UPDATE coordinate_loc SET location="${req.body.loc}", lat=${req.body.latEdit}, lng=${req.body.lngEdit} WHERE id=${req.params.id_location}`, (err, result) => {
+                if(err) throw err
+                res.redirect('/manage')
             })
         })
         app.get('/delete/:id_location', (req,res) => {
