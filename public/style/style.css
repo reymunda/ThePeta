@@ -118,3 +118,23 @@ table{
   border: none;
   font-weight: bold;
 }
+#info {
+  display: table;
+  word-wrap: anywhere;
+  white-space: pre-wrap;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  text-align: center;
+  color: rgb(0, 189, 110);
+  background: #fff;
+  width: 450px;
+  font-weight: bold;
+  }
+.latitude{
+  display: flex;
+}
+.latitude h3{
+  margin-right: 15px;
+}

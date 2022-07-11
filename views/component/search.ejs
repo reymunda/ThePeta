@@ -1,14 +1,17 @@
 
-</style>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 <div class="container-fluid">
     <div id='map' style='width: 100%; height: 90vh;'></div>
-</div>    
-<div class="search-container">
+  </div>    
+  <div class="search-container">
     <h1 class="me-3">Search location</h1>
-    <p>Search the location in the white field above</p>
+    <p>Search the location in the white field above. Get automatically Lat/Lng</p>
+    <div class="latitude">
+      <h3>Longitude & Latitude</h3>
+      <input type="text" name="" id="info">
+    </div>
 </div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoicmV5bXVuZGEiLCJhIjoiY2w0ZXZ1em9rMDFkczNscGYzYzBhOXdzZiJ9.gUuz383X328paOqRYZRFbQ';
@@ -33,7 +36,7 @@
       },
       properties: {
         title: 'Mapbox',
-        description: 'Washington, D.C.'
+        description: 'You are at UNIKOM'
       }
     }
   ]
@@ -59,4 +62,8 @@ accessToken: mapboxgl.accessToken,
 mapboxgl: mapboxgl
 })
 );
+map.on('mousemove', (e) => {
+document.getElementById('info').value = e.lngLat.wrap();
+});
+
 </script>
